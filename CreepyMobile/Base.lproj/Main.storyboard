@@ -1,25 +1,532 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
+        <!--Nearby Map View Controller-->
+        <scene sceneID="Hmm-or-VaN">
+            <objects>
+                <viewController id="lfh-88-Efz" customClass="NearbyMapViewController" customModule="CreepyMobile" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LUM-ap-CE8"/>
+                        <viewControllerLayoutGuide type="bottom" id="jak-fR-KSt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hUX-sH-zG2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JOX-7M-PvO">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Nearby" id="qQJ-6a-m7V">
+                                        <barButtonItem key="leftBarButtonItem" title="back" id="2p3-vS-P8N">
+                                            <connections>
+                                                <segue destination="vXZ-lx-hvc" kind="show" id="mAS-gV-Tns"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ebt-mS-YmO" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="nearbyMapView" destination="ebt-mS-YmO" id="qhq-PU-cci"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QiN-po-a4C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-150.5" y="1078.5"/>
+        </scene>
+        <!--Search Together View Controller-->
+        <scene sceneID="79A-Zm-atO">
+            <objects>
+                <viewController id="2l3-ha-DF3" customClass="SearchTogetherViewController" customModule="CreepyMobile" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KZT-qu-I9C"/>
+                        <viewControllerLayoutGuide type="bottom" id="KPx-va-JqV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Zme-lF-1zx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tTc-ck-FbR" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="217" width="375" height="450"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I7l-LP-tTR">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Mixed Search" id="gk3-G8-wEy">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="PUM-X7-1Tp">
+                                            <connections>
+                                                <segue destination="vXZ-lx-hvc" kind="show" id="3Zx-km-j2S"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GaG-jr-OxK">
+                                <rect key="frame" x="21" y="85" width="163" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dx9-Q7-Bdq">
+                                <rect key="frame" x="249" y="84" width="48" height="30"/>
+                                <state key="normal" title="Search">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchTapped:" destination="2l3-ha-DF3" eventType="touchUpInside" id="oPM-a1-aTu"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="mapView" destination="tTc-ck-FbR" id="dhP-bm-Jrs"/>
+                        <outlet property="username" destination="GaG-jr-OxK" id="sD9-h3-AsA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Db4-pW-JFE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-399.5" y="265.5"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="CreepyMobile" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CreepyMobile" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TxF-MP-RLI">
+                                <rect key="frame" x="134" y="74" width="107" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JMa-mk-2v2">
+                                <rect key="frame" x="127" y="153" width="121" height="30"/>
+                                <state key="normal" title="Instagram Search">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="8u9-Rb-YtP" kind="show" id="P4P-2c-SSy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5fD-Py-h9v">
+                                <rect key="frame" x="142" y="196" width="90" height="30"/>
+                                <state key="normal" title="Flickr Search">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="FcJ-db-8wI" kind="show" id="DMF-MN-ibL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FM0-QE-i4z">
+                                <rect key="frame" x="138" y="234" width="98" height="30"/>
+                                <state key="normal" title="Twitter Search">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="UUH-0r-o10" kind="show" id="P4P-ev-ovK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FfJ-i5-Ku0">
+                                <rect key="frame" x="128" y="477" width="118" height="30"/>
+                                <state key="normal" title="Search Followers">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="lfh-88-Efz" kind="show" id="rzw-d8-AEh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehs-A0-3LQ">
+                                <rect key="frame" x="140" y="329" width="95" height="30"/>
+                                <state key="normal" title="Mixed Search">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="2l3-ha-DF3" kind="show" id="1lm-TH-v59"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="269.5" y="265.5"/>
+        </scene>
+        <!--Flickr View Controller-->
+        <scene sceneID="dft-QO-3Vu">
+            <objects>
+                <viewController id="FcJ-db-8wI" customClass="FlickrViewController" customModule="CreepyMobile" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XzB-Vb-IFZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="YdO-wi-cX0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fTm-M2-gom">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XPQ-MG-NyG">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Flickr" id="tzd-an-0sp">
+                                        <barButtonItem key="leftBarButtonItem" title="back" id="z9F-eP-7lL">
+                                            <connections>
+                                                <segue destination="vXZ-lx-hvc" kind="show" id="Y0z-iw-ZMM"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="JingGao1990" borderStyle="roundedRect" placeholder="username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TES-hC-hU2">
+                                <rect key="frame" x="16" y="78" width="136" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l7O-hT-Jkr">
+                                <rect key="frame" x="43" y="153" width="289" height="249"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d0J-UV-Y0f">
+                                <rect key="frame" x="43" y="428" width="289" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQc-g0-Ljw">
+                                <rect key="frame" x="200" y="78" width="142" height="30"/>
+                                <state key="normal" title="Search Recent Flickr">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchUserID:" destination="FcJ-db-8wI" eventType="touchUpInside" id="ZtJ-fd-Rhu"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eHL-sd-Hxc">
+                                <rect key="frame" x="43" y="457" width="289" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M9p-b9-MQo">
+                                <rect key="frame" x="131" y="584" width="112" height="30"/>
+                                <state key="normal" title="Show It On Map">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnSubmit:" destination="FcJ-db-8wI" eventType="touchUpInside" id="Rm2-uK-l5m"/>
+                                    <segue destination="PYW-Eh-vAD" kind="show" identifier="btnSubmitSegue" id="ERh-iB-jq0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="imageView" destination="l7O-hT-Jkr" id="O61-hG-872"/>
+                        <outlet property="textLabel" destination="d0J-UV-Y0f" id="w8W-9d-YVQ"/>
+                        <outlet property="timeLabel" destination="eHL-sd-Hxc" id="qy8-bP-lbL"/>
+                        <outlet property="usernameField" destination="TES-hC-hU2" id="0aH-Fr-HBU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PJj-lk-PB6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="707.5" y="1161.5"/>
+        </scene>
+        <!--Flickr Map View Controller-->
+        <scene sceneID="Mkm-4o-j6P">
+            <objects>
+                <viewController id="PYW-Eh-vAD" customClass="FlickrMapViewController" customModule="CreepyMobile" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NCO-gx-8b1"/>
+                        <viewControllerLayoutGuide type="bottom" id="bYH-Se-qMO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zbo-ZG-cNz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YQ9-bR-v2K">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Flickr Map View" id="wJ6-Oj-6Py">
+                                        <barButtonItem key="leftBarButtonItem" title="back" id="0Td-az-no1">
+                                            <connections>
+                                                <segue destination="FcJ-db-8wI" kind="show" id="YQR-fS-zY6"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mq8-eK-BGO" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="mapView" destination="Mq8-eK-BGO" id="yvh-1O-Apd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pSB-KQ-oBV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1611.5" y="1139.5"/>
+        </scene>
+        <!--Twitter View Controller-->
+        <scene sceneID="Srq-m1-V8C">
+            <objects>
+                <viewController storyboardIdentifier="TwitterViewController" id="UUH-0r-o10" customClass="TwitterViewController" customModule="CreepyMobile" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rCe-qA-7bk"/>
+                        <viewControllerLayoutGuide type="bottom" id="5MJ-83-h3J"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ewT-pt-koN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yn7-Wx-yxe">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Twitter" id="3ph-tK-fcj">
+                                        <barButtonItem key="leftBarButtonItem" title="back" id="IX8-wv-Vee">
+                                            <connections>
+                                                <segue destination="vXZ-lx-hvc" kind="show" id="R41-9h-0mv"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="JingGao1990" borderStyle="roundedRect" placeholder="username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Iq0-T4-T67">
+                                <rect key="frame" x="34" y="101" width="155" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BXC-CZ-cZP">
+                                <rect key="frame" x="224" y="101" width="100" height="30"/>
+                                <state key="normal" title="Search Tweets">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchTapped:" destination="UUH-0r-o10" eventType="touchUpInside" id="fQr-KT-NgE"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1B8-kS-Yye">
+                                <rect key="frame" x="56" y="175" width="262" height="246"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tweet" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NvI-bi-l5Z">
+                                <rect key="frame" x="56" y="436" width="262" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lct-zt-cin">
+                                <rect key="frame" x="56" y="465" width="262" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CQw-yv-kn1">
+                                <rect key="frame" x="139" y="570" width="112" height="30"/>
+                                <state key="normal" title="Show It On Map">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnSubmit:" destination="UUH-0r-o10" eventType="touchUpInside" id="X54-4u-s9h"/>
+                                    <segue destination="u5M-Y3-dbc" kind="show" identifier="btnSubmitSegue" id="Ltb-7d-mcb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="imageView" destination="1B8-kS-Yye" id="5oR-PY-WHy"/>
+                        <outlet property="textLabel" destination="NvI-bi-l5Z" id="ogo-N8-P8a"/>
+                        <outlet property="timeLabel" destination="Lct-zt-cin" id="JZ5-4g-Zhs"/>
+                        <outlet property="usernameField" destination="Iq0-T4-T67" id="RYP-fS-UMM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Ox-pu-ca6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="969.5" y="-531.5"/>
+        </scene>
+        <!--Twitter Map View Controller-->
+        <scene sceneID="jCM-W6-Cvl">
+            <objects>
+                <viewController id="u5M-Y3-dbc" customClass="TwitterMapViewController" customModule="CreepyMobile" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="r8a-jt-IrM"/>
+                        <viewControllerLayoutGuide type="bottom" id="ng9-Pv-uMe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OPd-IL-PZC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SQ7-y0-8Zu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1641.5" y="-531.5"/>
+        </scene>
+        <!--Instagram View Controller-->
+        <scene sceneID="43t-Em-L0V">
+            <objects>
+                <viewController id="8u9-Rb-YtP" customClass="InstagramViewController" customModule="CreepyMobile" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="71B-vE-hon"/>
+                        <viewControllerLayoutGuide type="bottom" id="OOx-uC-P3t"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Zx8-FV-gBw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Aj4-dD-1cU">
+                                <rect key="frame" x="16" y="79" width="142" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iKv-bd-xWf">
+                                <rect key="frame" x="185" y="78" width="174" height="30"/>
+                                <state key="normal" title="Search Recent Instagram">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchTapped:" destination="8u9-Rb-YtP" eventType="touchUpInside" id="8h8-sf-TKu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YHV-m1-2iC">
+                                <rect key="frame" x="131" y="544" width="112" height="30"/>
+                                <state key="normal" title="Show It On Map">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnSubmit:" destination="8u9-Rb-YtP" eventType="touchUpInside" id="lbb-N4-NhY"/>
+                                    <segue destination="ZcM-r7-6jy" kind="show" identifier="btnSubmitSegue" id="9HK-l3-q3Y"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xcB-Fk-Kvg" customClass="textLabel">
+                                <rect key="frame" x="44" y="438" width="272" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rKd-wd-lKn">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Instagram" id="SMz-6R-1ca">
+                                        <barButtonItem key="leftBarButtonItem" title="back" id="eYA-8g-fvg">
+                                            <connections>
+                                                <segue destination="vXZ-lx-hvc" kind="show" id="a6K-ic-9ob"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eZQ-b6-9XD">
+                                <rect key="frame" x="44" y="148" width="270" height="270"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OFe-nk-9Sg" customClass="timeLabel">
+                                <rect key="frame" x="44" y="467" width="272" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="imageView" destination="eZQ-b6-9XD" id="XRP-6d-taO"/>
+                        <outlet property="textLabel" destination="xcB-Fk-Kvg" id="FYp-2g-Ayi"/>
+                        <outlet property="timeLabel" destination="OFe-nk-9Sg" id="8Mf-Mz-XcC"/>
+                        <outlet property="usernameField" destination="Aj4-dD-1cU" id="G4I-nG-WYu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5kw-On-dm8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1043.5" y="293.5"/>
+        </scene>
+        <!--Instagram Map View Controller-->
+        <scene sceneID="Twb-gD-IVS">
+            <objects>
+                <viewController id="ZcM-r7-6jy" customClass="InstagramMapViewController" customModule="CreepyMobile" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OzI-Ur-NlF"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ftz-nQ-kas"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Hsn-Ld-Ain">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cX9-RI-4cf">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Instagram Map View" id="um3-vg-uVa">
+                                        <barButtonItem key="leftBarButtonItem" title="back" id="yFV-OH-Oqu">
+                                            <connections>
+                                                <segue destination="8u9-Rb-YtP" kind="show" id="nJS-gu-Dtz"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XcV-ah-5M4" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="mapView" destination="XcV-ah-5M4" id="fEy-fb-RZa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fhl-ei-C1U" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1681.5" y="265.5"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="AUq-MC-T6n">
+            <objects>
+                <viewController id="wci-Ga-3cO" customClass="MapViewController" customModule="CreepyMobile" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="otc-dI-U03"/>
+                        <viewControllerLayoutGuide type="bottom" id="Yxp-5A-4Kg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZQV-Bj-2xh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yia-U9-a9w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2573.5" y="249.5"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="DMF-MN-ibL"/>
+        <segue reference="a6K-ic-9ob"/>
+        <segue reference="P4P-2c-SSy"/>
+    </inferredMetricsTieBreakers>
 </document>
